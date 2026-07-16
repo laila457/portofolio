@@ -979,6 +979,59 @@
                 height: 40px;
             }
         }
+        /* ============================================================
+           ROLE BADGES
+           ============================================================ */
+        .role-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 100px;
+            background: rgba(34,197,94,0.1);
+            color: #22c55e;
+            border: 1px solid rgba(34,197,94,0.2);
+            margin-bottom: 8px;
+        }
+        /* ============================================================
+           PROJECT DETAIL MODAL
+           ============================================================ */
+        .modal-overlay{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:80px 20px 40px}
+        .modal-overlay.active{display:flex}
+        .modal-content{background:#111318;border:1px solid rgba(255,255,255,.08);border-radius:20px;max-width:860px;width:100%;overflow:hidden;position:relative;animation:modalSlideIn .35s ease-out}
+        @keyframes modalSlideIn{from{opacity:0;transform:translateY(40px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+        .modal-close{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);color:#94a3b8;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s ease;z-index:10}
+        .modal-close:hover{background:rgba(239,68,68,.2);border-color:rgba(239,68,68,.3);color:#ef4444}
+        .modal-gallery{position:relative;width:100%;aspect-ratio:16/9;background:#0a0a0f;overflow:hidden}
+        .modal-gallery img{width:100%;height:100%;object-fit:contain;transition:opacity .3s ease}
+        .modal-gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s ease;z-index:5}
+        .modal-gallery-nav:hover{background:rgba(37,99,235,.6);border-color:#2563eb}
+        .modal-gallery-prev{left:12px}.modal-gallery-next{right:12px}
+        .modal-gallery-dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:5}
+        .modal-gallery-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:all .3s ease}
+        .modal-gallery-dot.active{background:#2563eb;width:20px;border-radius:4px}
+        .modal-gallery-counter{position:absolute;bottom:12px;right:12px;font-size:.75rem;color:rgba(255,255,255,.6);background:rgba(0,0,0,.5);padding:3px 10px;border-radius:100px;z-index:5}
+        .modal-video{width:100%;aspect-ratio:16/9;background:#000}
+        .modal-video video{width:100%;height:100%;object-fit:contain}
+        .modal-body{padding:32px}
+        .modal-title{font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.3}
+        .modal-role{font-size:.85rem;color:#22c55e;font-weight:500;margin-bottom:16px}
+        .modal-section{margin-bottom:24px}
+        .modal-section h4{font-size:.95rem;font-weight:600;color:#e2e8f0;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+        .modal-section h4 .section-icon{width:24px;height:24px;border-radius:6px;background:rgba(37,99,235,.15);display:flex;align-items:center;justify-content:center;font-size:.8rem}
+        .modal-section p,.modal-section li{font-size:.9rem;color:#94a3b8;line-height:1.7}
+        .modal-section ul{list-style:none;padding:0}
+        .modal-section ul li{padding:4px 0 4px 20px;position:relative}
+        .modal-section ul li::before{content:'\25B9';position:absolute;left:0;color:#2563eb}
+        .modal-tech-tags{display:flex;flex-wrap:wrap;gap:8px}
+        .modal-tech-tag{font-size:.8rem;font-weight:500;padding:6px 14px;border-radius:100px;background:rgba(37,99,235,.1);color:#60a5fa;border:1px solid rgba(37,99,235,.15)}
+        .modal-links{display:flex;gap:12px;padding-top:16px;border-top:1px solid rgba(255,255,255,.06)}
+        .modal-links .btn{padding:10px 24px;font-size:.85rem}
+        .project-card{cursor:pointer}
+        .project-card .project-role{font-size:.75rem;color:#22c55e;font-weight:500;margin-bottom:4px}
+        .project-card .project-image img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+        .project-card:hover .project-image img{transform:scale(1.05)}
+        @media(max-width:640px){.modal-overlay{padding:60px 12px 20px}.modal-body{padding:20px}.modal-title{font-size:1.2rem}.modal-gallery-nav{width:32px;height:32px;font-size:.9rem}}
     </style>
 </head>
 <body>
@@ -1106,21 +1159,23 @@
                 <p>
                     Saya adalah <strong>Nazwa Laila</strong>, mahasiswa S1 Informatika
                     di <strong>Universitas Horizon Indonesia</strong> yang memiliki ketertarikan
-                    besar pada <strong>analisis sistem</strong>, <strong>pengembangan aplikasi</strong>,
-                    dan <strong>desain UI/UX</strong>.
+                    besar pada <strong>Web Development</strong>, <strong>Mobile Development</strong>,
+                    <strong>UI/UX Design</strong>, <strong>System Analysis</strong>,
+                    <strong>Internet of Things (IoT)</strong>, dan <strong>Software Engineering</strong>.
                 </p>
                 <p>
-                    Selama masa perkuliahan, saya aktif mengerjakan berbagai proyek akademik
-                    menggunakan teknologi seperti <strong>Laravel</strong>, <strong>Flutter</strong>,
-                    <strong>Internet of Things (IoT)</strong>, dan <strong>Artificial Intelligence</strong>.
+                    Selama masa perkuliahan, saya aktif mengerjakan berbagai proyek nyata
+                    mulai dari pengembangan aplikasi edukasi interaktif, marketplace penyewaan,
+                    sistem monitoring IoT, hingga perancangan UI/UX untuk berbagai platform.
+                    Saya menggunakan teknologi seperti <strong>Flutter</strong>, <strong>Laravel</strong>,
+                    <strong>PHP</strong>, <strong>Python</strong>, <strong>Firebase</strong>,
+                    <strong>Figma</strong>, dan <strong>ESP32</strong>.
+                </p>
+                <p>
                     Saya percaya bahwa teknologi memiliki potensi besar untuk menyelesaikan
-                    masalah nyata di kehidupan sehari-hari.
-                </p>
-                <p>
-                    Saya senang mempelajari teknologi baru dan selalu berusaha mengikuti
-                    perkembangan terkini di industri IT. Kemampuan bekerja sama dalam tim,
-                    komunikasi yang baik, dan kemampuan problem-solving menjadi kekuatan
-                    utama saya dalam setiap proyek yang saya kerjakan.
+                    masalah nyata di kehidupan sehari-hari. Dengan kemampuan bekerja sama dalam tim,
+                    komunikasi yang baik, dan problem-solving yang solid, saya selalu berusaha
+                    memberikan yang terbaik dalam setiap proyek yang saya kerjakan.
                 </p>
             </div>
 
@@ -1133,18 +1188,23 @@
                 </div>
                 <div class="about-highlight-card">
                     <div class="card-icon">💻</div>
-                    <h4>Full-Stack Development</h4>
-                    <p>PHP Native, Laravel, Flutter, MySQL, Python, dan berbagai framework modern</p>
+                    <h4>Software Development</h4>
+                    <p>Web (PHP, Laravel), Mobile (Flutter), dan berbagai framework modern</p>
                 </div>
                 <div class="about-highlight-card">
                     <div class="card-icon">🤖</div>
                     <h4>AI & IoT</h4>
-                    <p>Proyek berbasis Rule-Based AI dan Internet of Things</p>
+                    <p>Rule-Based Expert System, ESP32, sensor monitoring, dan automasi</p>
                 </div>
                 <div class="about-highlight-card">
                     <div class="card-icon">🎨</div>
                     <h4>UI/UX Design</h4>
-                    <p>Desain antarmuka mobile yang intuitif menggunakan Figma</p>
+                    <p>Perancangan antarmuka profesional menggunakan Figma dengan Design Thinking</p>
+                </div>
+                <div class="about-highlight-card">
+                    <div class="card-icon">📋</div>
+                    <h4>System Analysis</h4>
+                    <p>Analisis kebutuhan, Use Case, Activity Diagram, dan dokumentasi sistem</p>
                 </div>
             </div>
         </div>
@@ -1179,7 +1239,7 @@
             <div class="skill-card fade-in fade-in-delay-2">
                 <span class="skill-icon">⚡</span>
                 <span class="skill-name">JavaScript</span>
-                <div class="skill-level"><div class="skill-level-fill" data-width="80"></div></div>
+                <div class="skill-level"><div class="skill-level-fill" data-width="65"></div></div>
             </div>
             <!-- Skill: PHP -->
             <div class="skill-card fade-in fade-in-delay-2">
@@ -1191,25 +1251,37 @@
             <div class="skill-card fade-in fade-in-delay-3">
                 <span class="skill-icon">🔺</span>
                 <span class="skill-name">Laravel</span>
-                <div class="skill-level"><div class="skill-level-fill" data-width="85"></div></div>
+                <div class="skill-level"><div class="skill-level-fill" data-width="55"></div></div>
             </div>
             <!-- Skill: Flutter -->
             <div class="skill-card fade-in fade-in-delay-3">
                 <span class="skill-icon">📱</span>
                 <span class="skill-name">Flutter</span>
+                <div class="skill-level"><div class="skill-level-fill" data-width="78"></div></div>
+            </div>
+            <!-- Skill: Dart -->
+            <div class="skill-card fade-in fade-in-delay-3">
+                <span class="skill-icon">🎯</span>
+                <span class="skill-name">Dart</span>
                 <div class="skill-level"><div class="skill-level-fill" data-width="75"></div></div>
             </div>
             <!-- Skill: MySQL -->
             <div class="skill-card fade-in fade-in-delay-4">
                 <span class="skill-icon">🗄️</span>
                 <span class="skill-name">MySQL</span>
-                <div class="skill-level"><div class="skill-level-fill" data-width="80"></div></div>
+                <div class="skill-level"><div class="skill-level-fill" data-width="70"></div></div>
             </div>
             <!-- Skill: Python -->
             <div class="skill-card fade-in fade-in-delay-4">
                 <span class="skill-icon">🐍</span>
                 <span class="skill-name">Python</span>
-                <div class="skill-level"><div class="skill-level-fill" data-width="75"></div></div>
+                <div class="skill-level"><div class="skill-level-fill" data-width="70"></div></div>
+            </div>
+            <!-- Skill: Firebase -->
+            <div class="skill-card fade-in fade-in-delay-4">
+                <span class="skill-icon">🔥</span>
+                <span class="skill-name">Firebase</span>
+                <div class="skill-level"><div class="skill-level-fill" data-width="65"></div></div>
             </div>
             <!-- Skill: UI/UX Design -->
             <div class="skill-card fade-in fade-in-delay-5">
@@ -1223,6 +1295,18 @@
                 <span class="skill-name">Figma</span>
                 <div class="skill-level"><div class="skill-level-fill" data-width="82"></div></div>
             </div>
+            <!-- Skill: System Analysis -->
+            <div class="skill-card fade-in fade-in-delay-5">
+                <span class="skill-icon">📋</span>
+                <span class="skill-name">System Analysis</span>
+                <div class="skill-level"><div class="skill-level-fill" data-width="72"></div></div>
+            </div>
+            <!-- Skill: ESP32 / IoT -->
+            <div class="skill-card fade-in fade-in-delay-5">
+                <span class="skill-icon">🔌</span>
+                <span class="skill-name">ESP32 / IoT</span>
+                <div class="skill-level"><div class="skill-level-fill" data-width="60"></div></div>
+            </div>
         </div>
     </section>
 
@@ -1235,160 +1319,217 @@
         <div class="fade-in">
             <span class="section-label">Portofolio</span>
             <h2 class="section-title">Proyek Terbaru</h2>
-            <p class="section-subtitle">Beberapa proyek yang telah saya kerjakan selama masa perkuliahan.</p>
+            <p class="section-subtitle">Beberapa proyek nyata yang telah saya kerjakan selama masa perkuliahan.</p>
         </div>
 
         <div class="projects-grid">
 
-            <!-- Project 1: CRUD Mahasiswa Laravel -->
-            <div class="project-card fade-in fade-in-delay-1">
+            <!-- Project 1: CILOKA -->
+            <div class="project-card fade-in fade-in-delay-1" onclick="openModal('ciloka')">
                 <div class="project-image">
-                    <!-- Ganti dengan gambar screenshot project -->
-                    <!-- <img src="project-crud.jpg" alt="Sistem CRUD Mahasiswa"> -->
-                    📊
+                    <img src="Ciloka1.jpeg" alt="CILOKA">
                 </div>
                 <div class="project-body">
-                    <h3 class="project-title">Sistem CRUD Mahasiswa</h3>
+                    <div class="project-role">UI/UX Designer · System Analyst · Game Developer</div>
+                    <h3 class="project-title">CILOKA</h3>
                     <p class="project-desc">
-                        Aplikasi web manajemen data mahasiswa dengan fitur Create, Read,
-                        Update, dan Delete. Menggunakan arsitektur MVC untuk struktur
-                        kode yang terorganisir dan mudah dipelihara.
+                        Aplikasi edukasi interaktif untuk siswa SD kelas 1–6 dengan fitur
+                        belajar membaca, menulis, berhitung, handwriting recognition,
+                        dan rekomendasi gaya belajar menggunakan Rule Based Expert System.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Flutter</span>
+                        <span class="project-tag">Figma</span>
+                        <span class="project-tag">Google ML Kit</span>
+                        <span class="project-tag">Forward Chaining</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-primary" onclick="event.stopPropagation();openModal('ciloka')">Detail</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: PAKAI AJA -->
+            <div class="project-card fade-in fade-in-delay-2" onclick="openModal('pakaiaja')">
+                <div class="project-image">
+                    <img src="Pakaiaja1.jpeg" alt="PAKAI AJA">
+                </div>
+                <div class="project-body">
+                    <div class="project-role">System Analyst</div>
+                    <h3 class="project-title">PAKAI AJA</h3>
+                    <p class="project-desc">
+                        Marketplace penyewaan barang dengan tiga role (Penyewa, Pemilik Barang, Admin)
+                        yang memiliki fitur verifikasi KTP, selfie verification, escrow payment,
+                        dan pencegahan penipuan.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Figma</span>
+                        <span class="project-tag">System Analysis</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-primary" onclick="event.stopPropagation();openModal('pakaiaja')">Detail</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Happy Paws -->
+            <div class="project-card fade-in fade-in-delay-3" onclick="openModal('happypaws')">
+                <div class="project-image">
+                    <img src="HappypawsEmpathize.jpeg" alt="Happy Paws">
+                </div>
+                <div class="project-body">
+                    <div class="project-role">Mobile Developer</div>
+                    <h3 class="project-title">Happy Paws</h3>
+                    <p class="project-desc">
+                        Aplikasi mobile booking pet grooming yang memungkinkan pengguna
+                        melakukan reservasi grooming, memilih jadwal, melihat riwayat booking,
+                        dan mengelola data hewan peliharaan.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Flutter</span>
+                        <span class="project-tag">Dart</span>
+                        <span class="project-tag">Firebase</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-primary" onclick="event.stopPropagation();openModal('happypaws')">Detail</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: Smart Water Gallon Monitoring -->
+            <div class="project-card fade-in fade-in-delay-4" onclick="openModal('smartgallon')">
+                <div class="project-image">
+                    <img src="IOT Smartgalon1.png" alt="Smart Water Gallon Monitoring">
+                </div>
+                <div class="project-body">
+                    <div class="project-role">IoT Developer · Firmware Developer · System Developer</div>
+                    <h3 class="project-title">Smart Water Gallon Monitoring</h3>
+                    <p class="project-desc">
+                        Sistem monitoring galon air berbasis IoT menggunakan ESP32, HX711,
+                        dan Load Cell. Data dikirim ke website Laravel untuk monitoring
+                        realtime dan notifikasi otomatis.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">ESP32</span>
+                        <span class="project-tag">Laravel</span>
+                        <span class="project-tag">PHP</span>
+                        <span class="project-tag">MySQL</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-primary" onclick="event.stopPropagation();openModal('smartgallon')">Detail</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5: Craft Cake -->
+            <div class="project-card fade-in fade-in-delay-5" onclick="openModal('craftcake')">
+                <div class="project-image">
+                    <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#334155;">🎂</div>
+                </div>
+                <div class="project-body">
+                    <div class="project-role">UI/UX Designer</div>
+                    <h3 class="project-title">Craft Cake</h3>
+                    <p class="project-desc">
+                        Perancangan UI/UX website e-commerce penjualan kue dengan fokus
+                        pada pengalaman pengguna dan desain modern yang menarik.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Figma</span>
+                        <span class="project-tag">UI/UX</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-primary" onclick="event.stopPropagation();openModal('craftcake')">Detail</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6: Stunting Care -->
+            <div class="project-card fade-in fade-in-delay-5" onclick="openModal('stuntingcare')">
+                <div class="project-image">
+                    <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#334155;">👶</div>
+                </div>
+                <div class="project-body">
+                    <div class="project-role">UI/UX Designer</div>
+                    <h3 class="project-title">Stunting Care</h3>
+                    <p class="project-desc">
+                        Perancangan aplikasi kesehatan balita yang membantu orang tua
+                        memonitor pertumbuhan anak serta edukasi pencegahan stunting.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Figma</span>
+                        <span class="project-tag">UI/UX</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-primary" onclick="event.stopPropagation();openModal('stuntingcare')">Detail</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 7: Laravel CRUD Mahasiswa -->
+            <div class="project-card fade-in fade-in-delay-1" onclick="openModal('laravelcrud')">
+                <div class="project-image">
+                    <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#334155;">📊</div>
+                </div>
+                <div class="project-body">
+                    <div class="project-role">Full Stack Developer</div>
+                    <h3 class="project-title">Laravel CRUD Mahasiswa</h3>
+                    <p class="project-desc">
+                        Aplikasi web manajemen data mahasiswa dengan fitur CRUD lengkap
+                        menggunakan arsitektur MVC Laravel.
                     </p>
                     <div class="project-tags">
                         <span class="project-tag">Laravel</span>
                         <span class="project-tag">PHP</span>
                         <span class="project-tag">MySQL</span>
-                        <span class="project-tag">MVC</span>
+                        <span class="project-tag">JavaScript</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="btn btn-outline">GitHub ↗</a>
-                        <a href="#" class="btn btn-primary">Detail</a>
+                        <a href="#" class="btn btn-primary" onclick="event.stopPropagation();openModal('laravelcrud')">Detail</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 2: Aplikasi Mobile Flutter -->
-            <div class="project-card fade-in fade-in-delay-2">
+            <!-- Project 8: Flutter CRUD -->
+            <div class="project-card fade-in fade-in-delay-2" onclick="openModal('fluttercrud')">
                 <div class="project-image">
-                    <!-- <img src="project-flutter.jpg" alt="Aplikasi Mobile Flutter"> -->
-                    📱
+                    <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#334155;">📱</div>
                 </div>
                 <div class="project-body">
-                    <h3 class="project-title">Aplikasi Mobile Flutter</h3>
+                    <div class="project-role">Mobile Developer</div>
+                    <h3 class="project-title">Flutter CRUD</h3>
                     <p class="project-desc">
-                        Aplikasi mobile cross-platform yang dibangun menggunakan Flutter
-                        dengan UI yang responsif dan performa native. Mengintegrasikan
-                        berbagai fitur untuk pengalaman pengguna yang optimal.
+                        Aplikasi mobile CRUD dibangun dengan Flutter dan integrasi
+                        REST API untuk pengelolaan data real-time.
                     </p>
                     <div class="project-tags">
                         <span class="project-tag">Flutter</span>
                         <span class="project-tag">Dart</span>
-                        <span class="project-tag">Mobile</span>
+                        <span class="project-tag">REST API</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="btn btn-outline">GitHub ↗</a>
-                        <a href="#" class="btn btn-primary">Detail</a>
+                        <a href="#" class="btn btn-primary" onclick="event.stopPropagation();openModal('fluttercrud')">Detail</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 3: Chatbot Deteksi Stres -->
-            <div class="project-card fade-in fade-in-delay-3">
+            <!-- Project 9: Chatbot Rule-Based Python -->
+            <div class="project-card fade-in fade-in-delay-3" onclick="openModal('chatbot')">
                 <div class="project-image">
-                    <!-- <img src="project-chatbot.jpg" alt="Chatbot Deteksi Stres"> -->
-                    🤖
+                    <img src="Chatbot1.png" alt="Chatbot Rule-Based Python">
                 </div>
                 <div class="project-body">
-                    <h3 class="project-title">Chatbot Deteksi Stres Mahasiswa</h3>
+                    <div class="project-role">Python Developer</div>
+                    <h3 class="project-title">Chatbot Rule-Based Python</h3>
                     <p class="project-desc">
-                        Sistem chatbot berbasis Rule-Based AI untuk mendeteksi tingkat
-                        stres mahasiswa. Menggunakan pendekatan natural language processing
-                        untuk menganalisis input pengguna.
+                        Sistem chatbot berbasis Rule-Based AI untuk mendeteksi
+                        dan merespon input pengguna menggunakan expert system.
                     </p>
                     <div class="project-tags">
                         <span class="project-tag">Python</span>
-                        <span class="project-tag">AI</span>
-                        <span class="project-tag">NLP</span>
-                        <span class="project-tag">Rule-Based</span>
+                        <span class="project-tag">Rule Based System</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="btn btn-outline">GitHub ↗</a>
-                        <a href="#" class="btn btn-primary">Detail</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 4: Desain UI/UX Mobile -->
-            <div class="project-card fade-in fade-in-delay-4">
-                <div class="project-image">
-                    <!-- <img src="project-uiux.jpg" alt="Desain UI/UX Mobile"> -->
-                    🎨
-                </div>
-                <div class="project-body">
-                    <h3 class="project-title">Desain UI/UX Mobile</h3>
-                    <p class="project-desc">
-                        Perancangan antarmuka mobile application yang user-friendly
-                        dengan pendekatan design thinking. Mulai dari wireframe,
-                        prototyping, hingga user testing menggunakan Figma.
-                    </p>
-                    <div class="project-tags">
-                        <span class="project-tag">Figma</span>
-                        <span class="project-tag">UI/UX</span>
-                        <span class="project-tag">Prototype</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="btn btn-outline">GitHub ↗</a>
-                        <a href="#" class="btn btn-primary">Detail</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 5: Internet of Things -->
-            <div class="project-card fade-in fade-in-delay-5">
-                <div class="project-image">
-                    <!-- <img src="project-iot.jpg" alt="Project IoT"> -->
-                    🔌
-                </div>
-                <div class="project-body">
-                    <h3 class="project-title">Project Internet of Things</h3>
-                    <p class="project-desc">
-                        Sistem monitoring dan kontrol berbasis IoT yang menghubungkan
-                        perangkat keras dengan platform cloud. Memanfaatkan sensor
-                        dan mikrokontroler untuk automasi.
-                    </p>
-                    <div class="project-tags">
-                        <span class="project-tag">IoT</span>
-                        <span class="project-tag">Arduino</span>
-                        <span class="project-tag">Sensor</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="btn btn-outline">GitHub ↗</a>
-                        <a href="#" class="btn btn-primary">Detail</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 6: Website Portfolio -->
-            <div class="project-card fade-in fade-in-delay-5">
-                <div class="project-image">
-                    <!-- <img src="project-portfolio.jpg" alt="Website Portfolio"> -->
-                    💼
-                </div>
-                <div class="project-body">
-                    <h3 class="project-title">Website Portfolio Pribadi</h3>
-                    <p class="project-desc">
-                        Website portfolio profesional dengan desain modern dark mode,
-                        fully responsive, dan animasi smooth. Dibangun dengan HTML,
-                        CSS, dan JavaScript murni tanpa framework.
-                    </p>
-                    <div class="project-tags">
-                        <span class="project-tag">HTML</span>
-                        <span class="project-tag">CSS</span>
-                        <span class="project-tag">JavaScript</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="btn btn-outline">GitHub ↗</a>
-                        <a href="#hero" class="btn btn-primary">Lihat ↗</a>
+                        <a href="#" class="btn btn-primary" onclick="event.stopPropagation();openModal('chatbot')">Detail</a>
                     </div>
                 </div>
             </div>
@@ -1524,6 +1665,41 @@
     <button id="back-to-top" aria-label="Kembali ke atas">↑</button>
 
     <!-- ============================================================
+         PROJECT DETAIL MODAL
+         ============================================================ -->
+    <div class="modal-overlay" id="projectModal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()" aria-label="Tutup">✕</button>
+            <div class="modal-gallery" id="modalGallery">
+                <img id="modalGalleryImg" src="" alt="Project Screenshot">
+                <button class="modal-gallery-nav modal-gallery-prev" onclick="prevGallery()">‹</button>
+                <button class="modal-gallery-nav modal-gallery-next" onclick="nextGallery()">›</button>
+                <div class="modal-gallery-dots" id="modalGalleryDots"></div>
+                <div class="modal-gallery-counter" id="modalGalleryCounter"></div>
+            </div>
+            <div class="modal-video" id="modalVideo" style="display:none;">
+                <video id="modalVideoPlayer" controls>
+                    <source id="modalVideoSrc" src="" type="video/mp4">
+                    Browser tidak mendukung video.
+                </video>
+            </div>
+            <div class="modal-body">
+                <h3 class="modal-title" id="modalTitle"></h3>
+                <p class="modal-role" id="modalRole"></p>
+                <div class="modal-section"><h4><span class="section-icon">📝</span> Deskripsi</h4><p id="modalDesc"></p></div>
+                <div class="modal-section"><h4><span class="section-icon">✨</span> Fitur Utama</h4><ul id="modalFeatures"></ul></div>
+                <div class="modal-section"><h4><span class="section-icon">👤</span> Peran Saya</h4><p id="modalMyRole"></p></div>
+                <div class="modal-section"><h4><span class="section-icon">🛠️</span> Teknologi</h4><div class="modal-tech-tags" id="modalTech"></div></div>
+                <div class="modal-section"><h4><span class="section-icon">⚠️</span> Tantangan</h4><p id="modalChallenges"></p></div>
+                <div class="modal-section"><h4><span class="section-icon">💡</span> Solusi</h4><p id="modalSolutions"></p></div>
+                <div class="modal-section"><h4><span class="section-icon">🏆</span> Hasil Akhir</h4><p id="modalResult"></p></div>
+                <div class="modal-section" id="modalVideoSection" style="display:none;"><h4><span class="section-icon">🎬</span> Video Demo</h4><div style="margin-top:8px;"><button class="btn btn-outline" onclick="toggleModalVideo()">▶ Tonton Video Demo</button></div></div>
+                <div class="modal-links"><a href="#" class="btn btn-outline" id="modalGithub" target="_blank" rel="noopener">GitHub ↗</a></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
          JAVASCRIPT — All interactive features
          ============================================================ -->
     <script>
@@ -1556,14 +1732,12 @@
         var navLinks = document.querySelectorAll('.nav-links a, .mobile-nav a');
 
         window.addEventListener('scroll', function () {
-            /* Add scrolled class */
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
 
-            /* Highlight active nav link based on scroll position */
             var current = '';
             sections.forEach(function (section) {
                 var sectionTop = section.offsetTop - 100;
@@ -1591,7 +1765,6 @@
             mobileNav.classList.toggle('open');
         });
 
-        /* Close mobile nav on link click */
         document.querySelectorAll('.mobile-nav a').forEach(function (link) {
             link.addEventListener('click', function () {
                 hamburger.classList.remove('open');
@@ -1664,8 +1837,8 @@
             'Web Developer',
             'Mobile Developer',
             'UI/UX Designer',
-            'IoT Enthusiast',
-            'AI Learner',
+            'System Analyst',
+            'IoT Developer',
             'Problem Solver'
         ];
         var phraseIndex = 0;
@@ -1687,7 +1860,6 @@
             }
 
             if (!isDeleting && charIndex === currentPhrase.length) {
-                /* Pause at end of word */
                 isDeleting = true;
                 typingSpeed = 1500;
             } else if (isDeleting && charIndex === 0) {
@@ -1699,8 +1871,258 @@
             setTimeout(typeEffect, typingSpeed);
         }
 
-        /* Start typing after loader */
         setTimeout(typeEffect, 1200);
+
+        /* ==========================================================
+           PROJECT DATA
+           ========================================================== */
+        var projectsData = {
+            ciloka: {
+                title: 'CILOKA \u2014 Aplikasi Edukasi Anak SD',
+                role: 'UI/UX Designer \u00b7 System Analyst \u00b7 Game Developer',
+                desc: 'Aplikasi edukasi interaktif untuk siswa SD kelas 1\u20136 yang memiliki fitur belajar membaca, menulis, berhitung, handwriting recognition, text-to-speech, leaderboard, serta sistem rekomendasi gaya belajar menggunakan Rule Based Expert System dengan metode Forward Chaining.',
+                features: ['Belajar membaca, menulis, dan berhitung interaktif', 'Handwriting Recognition menggunakan Google ML Kit & OCR', 'Text-to-Speech untuk bantuan membaca', 'Leaderboard untuk motivasi belajar', 'Sistem rekomendasi gaya belajar (Rule Based Expert System)', 'Metode Forward Chaining untuk inferensi', 'Interface ramah anak untuk siswa SD'],
+                myRole: 'Sebagai UI/UX Designer, saya merancang antarmuka yang ramah anak dan intuitif. Sebagai System Analyst, saya menganalisis kebutuhan sistem dan merancang alur kerja expert system. Sebagai Game Developer, saya mengembangkan elemen gamifikasi seperti leaderboard dan reward system.',
+                tech: ['Flutter', 'Dart', 'Figma', 'Google ML Kit', 'OCR', 'Rule Based Expert System', 'Forward Chaining'],
+                challenges: 'Mengintegrasikan handwriting recognition dengan akurasi tinggi pada perangkat mobile, serta merancang rule base yang tepat untuk merekomendasikan gaya belajar yang sesuai dengan profil setiap siswa.',
+                solutions: 'Menggunakan Google ML Kit untuk OCR handwriting dengan training data yang cukup. Rule base dibangun dengan metode Forward Chaining yang memproses fakta siswa secara berurutan untuk menghasilkan rekomendasi gaya belajar yang akurat.',
+                result: 'Aplikasi berhasil membantu siswa SD belajar dengan cara yang interaktif dan menyenangkan. Sistem rekomendasi gaya belajar memberikan pengalaman personalisasi yang meningkatkan motivasi belajar siswa.',
+                images: ['Ciloka1.jpeg','Ciloka2.jpeg','Ciloka3.jpeg','Ciloka4.jpeg','Ciloka5.jpeg','Ciloka6.jpeg','Ciloka7.jpeg','Ciloka8.jpeg','Ciloka9.jpeg','Ciloka10.jpeg','Ciloka11.jpeg','Ciloka13.jpeg'],
+                video: 'Ciloka12.mp4',
+                github: '#'
+            },
+            pakaiaja: {
+                title: 'PAKAI AJA \u2014 Marketplace Penyewaan Barang',
+                role: 'System Analyst',
+                desc: 'Marketplace penyewaan barang dengan tiga role (Penyewa, Pemilik Barang, Admin) yang memiliki fitur verifikasi KTP, selfie verification, escrow payment, monitoring transaksi, dan pencegahan penipuan.',
+                features: ['Sistem tiga role: Penyewa, Pemilik Barang, Admin', 'Verifikasi identitas menggunakan KTP', 'Selfie verification untuk keamanan', 'Escrow payment system', 'Monitoring transaksi real-time', 'Sistem pencegahan penipuan', 'Dashboard admin untuk manajemen'],
+                myRole: 'Sebagai System Analyst, saya bertanggung jawab menganalisis kebutuhan bisnis dan pengguna, merancang use case diagram, activity diagram, dan mendokumentasikan seluruh alur sistem mulai dari registrasi hingga penyelesaian transaksi.',
+                tech: ['Figma', 'System Analysis', 'Use Case Diagram', 'Activity Diagram', 'ERD'],
+                challenges: 'Merancang alur verifikasi yang aman namun tetap mudah bagi pengguna, serta memastikan escrow payment berjalan lancar dengan mekanisme dispute resolution yang adil.',
+                solutions: 'Membangun alur verifikasi bertahap (KTP \u2192 Selfie \u2192 Review Admin) dengan feedback real-time. Escrow payment dirancang dengan milestone-based release.',
+                result: 'Dokumentasi sistem yang komprehensif berhasil disusun, mencakup use case diagram, activity diagram, ERD, dan prototype UI/UX yang siap untuk tahap pengembangan.',
+                images: ['Pakaiaja1.jpeg','Pakaiaja2.jpeg','Pakaiaja3.jpeg','Pakaiaja4.png'],
+                video: null,
+                github: '#'
+            },
+            happypaws: {
+                title: 'Happy Paws \u2014 Pet Grooming Booking',
+                role: 'Mobile Developer',
+                desc: 'Aplikasi mobile booking pet grooming yang memungkinkan pengguna melakukan reservasi grooming, memilih jadwal, melihat riwayat booking, dan mengelola data hewan peliharaan.',
+                features: ['Reservasi grooming dengan pilihan jadwal fleksibel', 'Katalog layanan grooming lengkap', 'Riwayat booking dan status real-time', 'Pengelolaan data hewan peliharaan', 'Notifikasi booking dan promosi', 'Sistem pembayaran integrasi', 'Interface intuitif dan responsif'],
+                myRole: 'Sebagai Mobile Developer, saya mengembangkan aplikasi mobile dari sisi client-side menggunakan Flutter, mengintegrasikan Firebase untuk backend services, serta memastikan performa dan UX yang optimal.',
+                tech: ['Flutter', 'Dart', 'Firebase', 'Cloud Firestore', 'Firebase Auth'],
+                challenges: 'Mengelola state management untuk data booking yang kompleks dengan multiple screens, serta mengintegrasikan Firebase real-time listener untuk update status booking secara live.',
+                solutions: 'Menggunakan Provider pattern untuk state management yang bersih. Firebase snapshot listener digunakan untuk real-time update. Struktur folder yang terorganisir memisahkan presentation, logic, dan data layer.',
+                result: 'Aplikasi mobile yang berfungsi dengan baik untuk booking pet grooming, dengan UI yang menarik dan performa yang responsif di berbagai device.',
+                images: ['HappypawsEmpathize.jpeg'],
+                video: null,
+                github: '#'
+            },
+            smartgallon: {
+                title: 'Smart Water Gallon Monitoring System',
+                role: 'IoT Developer \u00b7 Firmware Developer \u00b7 System Developer',
+                desc: 'Sistem monitoring galon air berbasis IoT menggunakan ESP32, HX711, dan Load Cell untuk membaca berat galon. Data dikirim ke website Laravel sehingga admin dapat memonitor kondisi galon secara realtime dan mendapatkan notifikasi ketika air hampir habis.',
+                features: ['Monitoring berat galon real-time menggunakan Load Cell', 'Pembacaan sensor HX711 via ESP32', 'Dashboard website untuk admin monitoring', 'Notifikasi otomatis saat air hampir habis', 'Histori data dan grafik konsumsi', 'Sistem alert berbasis threshold', 'Integrasi hardware dan software seamlessly'],
+                myRole: 'Sebagai IoT Developer dan Firmware Developer, saya membangun firmware ESP32 untuk pembacaan sensor dan pengiriman data. Sebagai System Developer, saya mengembangkan website Laravel untuk dashboard monitoring admin.',
+                tech: ['ESP32', 'HX711', 'Load Cell', 'Laravel', 'PHP', 'MySQL'],
+                challenges: 'Kalibrasi Load Cell untuk akurasi pembacaan berat galon yang presisi, serta memastikan stabilitas koneksi WiFi ESP32 untuk pengiriman data yang konsisten tanpa putus.',
+                solutions: 'Melakukan kalibrasi multi-point pada Load Cell dengan referensi berat standar. Implementasi auto-reconnect pada ESP32 dan fallback mechanism jika koneksi terputus. Data di-cache lokal pada ESP32 sebelum dikirim.',
+                result: 'Sistem monitoring yang berfungsi dengan baik, mampu memonitor berat galon secara real-time dan memberikan notifikasi otomatis. Website dashboard menampilkan data dengan grafik yang informatif.',
+                images: ['IOT Smartgalon1.png','IOT Smartgalon2.png','IOT Smartgalon3.png','IOT Smartgalon5.jpeg','IOT Smartgalon6.jpeg','IOT Smartgalon7.jpeg','IOT Smartgalon8.jpeg','ShowUpIOT.jpeg'],
+                video: 'IOT Smartgalon4.mp4',
+                github: '#'
+            },
+            craftcake: {
+                title: 'Craft Cake \u2014 E-Commerce Penjualan Kue',
+                role: 'UI/UX Designer',
+                desc: 'Perancangan UI/UX website e-commerce penjualan kue dengan fokus pada pengalaman pengguna dan desain modern yang menarik dan profesional.',
+                features: ['Desain website e-commerce modern dan responsif', 'Katalog produk dengan galeri gambar', 'Sistem keranjang belanja', 'Alur checkout yang intuitif', 'Desain responsif untuk mobile dan desktop', 'Prototyping interaktif di Figma', 'User testing dan iterasi desain'],
+                myRole: 'Sebagai UI/UX Designer, saya merancang seluruh antarmuka pengguna dari wireframe hingga high-fidelity prototype menggunakan Figma, melakukan user research, dan memastikan pengalaman pengguna yang optimal.',
+                tech: ['Figma', 'UI/UX Design', 'Prototyping', 'User Research'],
+                challenges: 'Merancang tata letak katalog kue yang menarik secara visual sambil tetap mempertahankan kemudahan navigasi dan proses checkout yang cepat.',
+                solutions: 'Menggunakan pendekatan design thinking: empathize \u2192 define \u2192 ideate \u2192 prototype \u2192 test. High-quality product photography layout dengan grid yang clean. Checkout flow di-streamline menjadi 3 langkah sederhana.',
+                result: 'Prototype website e-commerce yang profesional dengan navigasi intuitif, visual menarik, dan pengalaman pengguna yang optimal dari browsing hingga checkout.',
+                images: [],
+                video: 'CraftCake.mp4',
+                github: '#'
+            },
+            stuntingcare: {
+                title: 'Stunting Care \u2014 Aplikasi Kesehatan Balita',
+                role: 'UI/UX Designer',
+                desc: 'Perancangan aplikasi kesehatan balita yang membantu orang tua memonitor pertumbuhan anak serta memberikan edukasi mengenai pencegahan stunting.',
+                features: ['Dashboard monitoring pertumbuhan anak', 'Tracking tinggi badan dan berat badan', 'Grafik pertumbuhan vs standar WHO', 'Edukasi pencegahan stunting', 'Tips nutrisi dan pola makan sehat', 'Jadwal imunisasi dan kontrol kesehatan', 'Interface ramah pengguna untuk orang tua'],
+                myRole: 'Sebagai UI/UX Designer, saya merancang antarmuka yang mudah digunakan oleh orang tua, dengan visualisasi data pertumbuhan yang jelas dan konten edukasi yang mudah dipahami.',
+                tech: ['Figma', 'UI/UX Design', 'Prototyping', 'Healthcare UX'],
+                challenges: 'Menyajikan data pertumbuhan anak (grafik WHO) dengan cara yang mudah dipahami oleh orang tua awam, serta membuat konten edukasi stunting yang informatif tanpa mengintimidasi.',
+                solutions: 'Menggunakan traffic-light system (hijau/kuning/merah) untuk status pertumbuhan. Konten edukasi disajikan dalam format card dengan bahasa sederhana dan visual ikonik.',
+                result: 'Prototype aplikasi kesehatan balita yang informatif dan mudah digunakan, dengan visualisasi data pertumbuhan yang jelas dan konten edukasi yang bermanfaat bagi orang tua.',
+                images: [],
+                video: null,
+                github: '#'
+            },
+            laravelcrud: {
+                title: 'Laravel CRUD Mahasiswa',
+                role: 'Full Stack Developer',
+                desc: 'Aplikasi web manajemen data mahasiswa dengan fitur Create, Read, Update, dan Delete lengkap menggunakan arsitektur MVC Laravel untuk struktur kode yang terorganisir dan mudah dipelihara.',
+                features: ['CRUD lengkap: Create, Read, Update, Delete', 'Arsitektur MVC yang terorganisir', 'Validasi data input server-side', 'Pencarian dan filter data mahasiswa', 'Pagination untuk data berskala besar', 'Responsive design untuk berbagai device', 'Autentikasi user login'],
+                myRole: 'Sebagai Full Stack Developer, saya mengembangkan seluruh aspek aplikasi mulai dari database design, backend logic dengan Laravel, hingga frontend view menggunakan Blade template.',
+                tech: ['Laravel', 'PHP', 'MySQL', 'JavaScript', 'Blade Template', 'MVC'],
+                challenges: 'Menerapkan pattern MVC secara konsisten, menangani relasi data yang kompleks, serta memastikan validasi data yang robust di sisi server.',
+                solutions: 'Menggunakan Laravel Eloquent ORM untuk database abstraction. Validasi menggunakan Form Request classes. Blade template dengan component-based approach untuk UI yang konsisten.',
+                result: 'Aplikasi web CRUD yang fungsional dengan arsitektur MVC yang bersih, mudah dipelihara, dan dapat dikembangkan lebih lanjut.',
+                images: [],
+                video: null,
+                github: '#'
+            },
+            fluttercrud: {
+                title: 'Flutter CRUD Mobile App',
+                role: 'Mobile Developer',
+                desc: 'Aplikasi mobile CRUD yang dibangun menggunakan Flutter dengan integrasi REST API untuk pengelolaan data secara real-time.',
+                features: ['CRUD operations via REST API', 'State management yang efisien', 'UI responsif dan animated', 'Pull-to-refresh data', 'Loading states dan error handling', 'Input validation client-side', 'Performa optimal dengan Flutter'],
+                myRole: 'Sebagai Mobile Developer, saya mengembangkan aplikasi mobile cross-platform menggunakan Flutter, mengintegrasikan REST API untuk komunikasi data, dan memastikan performa serta UX yang optimal.',
+                tech: ['Flutter', 'Dart', 'REST API', 'HTTP Client', 'JSON Parsing'],
+                challenges: 'Menangani berbagai state aplikasi (loading, error, empty, success) dengan graceful, serta mengelola API calls dengan retry mechanism untuk koneksi yang tidak stabil.',
+                solutions: 'Menggunakan StatefulWidget dengan proper lifecycle management. HTTP client dengan timeout dan retry logic. Pull-to-refresh untuk manual refresh. SnackBar untuk error feedback yang user-friendly.',
+                result: 'Aplikasi mobile CRUD yang berfungsi dengan baik, memiliki UI yang responsif, dan komunikasi data dengan REST API yang stabil.',
+                images: [],
+                video: null,
+                github: '#'
+            },
+            chatbot: {
+                title: 'Chatbot Rule-Based Python',
+                role: 'Python Developer',
+                desc: 'Sistem chatbot berbasis Rule-Based AI yang dirancang untuk mendeteksi dan merespon input pengguna menggunakan pendekatan expert system dengan rule base yang telah ditentukan.',
+                features: ['Rule-Based response system', 'Pattern matching untuk input pengguna', 'Multi-turn conversation support', 'Rule base yang dapat dikonfigurasi', 'Logging percakapan', 'Error handling untuk input tak terduga', 'Arsitektur yang scalable'],
+                myRole: 'Sebagai Python Developer, saya mengembangkan chatbot engine menggunakan Python, merancang rule base untuk respons, dan membangun sistem parsing input pengguna.',
+                tech: ['Python', 'Rule Based System', 'Natural Language Processing', 'Pattern Matching'],
+                challenges: 'Merancang rule base yang cukup luas untuk menangani berbagai variasi input pengguna, serta memastikan respons chatbot relevan dan kontekstual.',
+                solutions: 'Menggunakan dictionary-based rule matching dengan wildcard support. Fallback response untuk input tak terduga. Modular rule base yang mudah ditambah/diubah tanpa mengubah core engine.',
+                result: 'Chatbot yang mampu merespon percakapan dengan relevan berdasarkan rule base yang telah ditentukan, dengan arsitektur yang mudah dikembangkan dan dimaintain.',
+                images: ['Chatbot1.png'],
+                video: null,
+                github: '#'
+            }
+        };
+
+        /* ==========================================================
+           PROJECT MODAL FUNCTIONS
+           ========================================================== */
+        var currentModalProject = null;
+        var currentGalleryIndex = 0;
+        var currentGalleryImages = [];
+
+        function openModal(projectId) {
+            var data = projectsData[projectId];
+            if (!data) return;
+            currentModalProject = projectId;
+            var modal = document.getElementById('projectModal');
+            document.getElementById('modalTitle').textContent = data.title;
+            document.getElementById('modalRole').textContent = data.role;
+            document.getElementById('modalDesc').textContent = data.desc;
+            document.getElementById('modalMyRole').textContent = data.myRole;
+            document.getElementById('modalChallenges').textContent = data.challenges;
+            document.getElementById('modalSolutions').textContent = data.solutions;
+            document.getElementById('modalResult').textContent = data.result;
+            document.getElementById('modalGithub').href = data.github;
+            var fl = document.getElementById('modalFeatures');
+            fl.innerHTML = '';
+            data.features.forEach(function(f) { var li = document.createElement('li'); li.textContent = f; fl.appendChild(li); });
+            var tc = document.getElementById('modalTech');
+            tc.innerHTML = '';
+            data.tech.forEach(function(t) { var sp = document.createElement('span'); sp.className = 'modal-tech-tag'; sp.textContent = t; tc.appendChild(sp); });
+            var galleryEl = document.getElementById('modalGallery');
+            var videoEl = document.getElementById('modalVideo');
+            var videoSection = document.getElementById('modalVideoSection');
+            var videoPlayer = document.getElementById('modalVideoPlayer');
+            videoPlayer.pause();
+            videoPlayer.currentTime = 0;
+            if (data.images && data.images.length > 0) {
+                currentGalleryImages = data.images;
+                currentGalleryIndex = 0;
+                galleryEl.style.display = 'block';
+                videoEl.style.display = 'none';
+                videoSection.style.display = data.video ? 'block' : 'none';
+                updateGallery();
+            } else if (data.video) {
+                galleryEl.style.display = 'none';
+                videoEl.style.display = 'block';
+                videoSection.style.display = 'none';
+                document.getElementById('modalVideoSrc').src = data.video;
+                videoPlayer.load();
+            } else {
+                galleryEl.style.display = 'none';
+                videoEl.style.display = 'none';
+                videoSection.style.display = 'none';
+            }
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(e) {
+            if (e && e.target !== document.getElementById('projectModal')) return;
+            document.getElementById('projectModal').classList.remove('active');
+            document.body.style.overflow = '';
+            var vp = document.getElementById('modalVideoPlayer');
+            vp.pause();
+            vp.currentTime = 0;
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal({target: document.getElementById('projectModal')});
+        });
+
+        function updateGallery() {
+            document.getElementById('modalGalleryImg').src = currentGalleryImages[currentGalleryIndex];
+            document.getElementById('modalGalleryCounter').textContent = (currentGalleryIndex + 1) + ' / ' + currentGalleryImages.length;
+            var dotsContainer = document.getElementById('modalGalleryDots');
+            dotsContainer.innerHTML = '';
+            if (currentGalleryImages.length <= 15) {
+                currentGalleryImages.forEach(function(_, i) {
+                    var dot = document.createElement('div');
+                    dot.className = 'modal-gallery-dot' + (i === currentGalleryIndex ? ' active' : '');
+                    dot.onclick = function() { currentGalleryIndex = i; updateGallery(); };
+                    dotsContainer.appendChild(dot);
+                });
+            }
+        }
+
+        function prevGallery() {
+            if (currentGalleryImages.length === 0) return;
+            currentGalleryIndex = (currentGalleryIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
+            updateGallery();
+        }
+
+        function nextGallery() {
+            if (currentGalleryImages.length === 0) return;
+            currentGalleryIndex = (currentGalleryIndex + 1) % currentGalleryImages.length;
+            updateGallery();
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (!document.getElementById('projectModal').classList.contains('active')) return;
+            if (e.key === 'ArrowLeft') prevGallery();
+            if (e.key === 'ArrowRight') nextGallery();
+        });
+
+        function toggleModalVideo() {
+            var data = projectsData[currentModalProject];
+            if (!data || !data.video) return;
+            var galleryEl = document.getElementById('modalGallery');
+            var videoEl = document.getElementById('modalVideo');
+            var videoPlayer = document.getElementById('modalVideoPlayer');
+            if (videoEl.style.display === 'none') {
+                galleryEl.style.display = 'none';
+                videoEl.style.display = 'block';
+                document.getElementById('modalVideoSrc').src = data.video;
+                videoPlayer.load();
+                videoPlayer.play();
+            } else {
+                videoPlayer.pause();
+                videoEl.style.display = 'none';
+                galleryEl.style.display = 'block';
+            }
+        }
     </script>
 </body>
 </html>
