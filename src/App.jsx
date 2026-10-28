@@ -1,5 +1,13 @@
 import { useEffect, useState } from 'react';
 
+const mediaAssets = import.meta.glob('../assets/*', { eager: true, query: '?url', import: 'default' });
+
+function getMediaUrl(filename) {
+  const url = mediaAssets[`../assets/${filename}`];
+  if (!url) throw new Error(`Media asset not found: ${filename}`);
+  return url;
+}
+
 const navigation = [
   ['hero', 'Beranda'], ['about', 'Tentang'], ['skills', 'Skill'],
   ['projects', 'Project'], ['certs', 'Sertifikat'], ['contact', 'Kontak'],
@@ -151,7 +159,7 @@ function ProjectModal({ project, onClose }) {
       <section className="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <button className="icon-button modal-close" onClick={onClose} aria-label="Tutup detail">×</button>
         {showGallery && <div className="modal-gallery">
-          <img src={project.images[imageIndex]} alt={`${project.title}, gambar ${imageIndex + 1}`} />
+          <img src={getMediaUrl(project.images[imageIndex])} alt={`${project.title}, gambar ${imageIndex + 1}`} />
           {project.images.length > 1 && <>
             <button className="gallery-arrow previous" onClick={() => changeImage(-1)} aria-label="Gambar sebelumnya">‹</button>
             <button className="gallery-arrow next" onClick={() => changeImage(1)} aria-label="Gambar selanjutnya">›</button>
@@ -159,7 +167,7 @@ function ProjectModal({ project, onClose }) {
             <div className="gallery-dots">{project.images.map((image, index) => <button key={image} className={index === imageIndex ? 'selected' : ''} onClick={() => setImageIndex(index)} aria-label={`Lihat gambar ${index + 1}`} />)}</div>
           </>}
         </div>}
-        {showVideo && <div className="modal-video"><video key={project.video} src={project.video} controls autoPlay onError={() => setVideoError(true)} />{videoError && <p>Video demo tidak dapat dimuat.</p>}</div>}
+        {showVideo && <div className="modal-video"><video key={project.video} src={getMediaUrl(project.video)} controls autoPlay onError={() => setVideoError(true)} />{videoError && <p>Video demo tidak dapat dimuat.</p>}</div>}
         <div className="modal-content">
           <span className="eyebrow">Studi proyek</span><h2 id="modal-title">{project.title}</h2><p className="modal-role">{project.role}</p>
           <div className="modal-section"><h3>Deskripsi</h3><p>{project.description}</p></div>
@@ -269,7 +277,7 @@ export default function App() {
             <div className="hero-socials"><a href="https://github.com/laila457" target="_blank" rel="noreferrer" aria-label="GitHub">GH</a><a href="https://www.linkedin.com/in/nazwa-laila" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a><a href="mailto:nazwalaila459@gmail.com" aria-label="Email">@</a></div>
           </div>
           <div className="hero-visual reveal is-visible" aria-label="Foto Nazwa Laila">
-            <div className="portrait-frame"><img src="foto-profil.jpg.jpeg" alt="Nazwa Laila" /><span className="portrait-index">01 / 06</span></div>
+            <div className="portrait-frame"><img src={getMediaUrl('foto-profil.jpg.jpeg')} alt="Nazwa Laila" /><span className="portrait-index">01 / 06</span></div>
             <div className="visual-note"><span className="note-mark">✳</span><span>Curious by nature.<br /><strong>Builder by choice.</strong></span></div>
             <span className="visual-caption">INFORMATIKA · INDONESIA</span>
             <span className="visual-stamp">NL</span>
@@ -300,12 +308,12 @@ export default function App() {
 
       <section className="section projects-section" id="projects">
         <SectionHeading label="Portofolio terpilih" title="Proyek yang saya bangun." description="Eksperimen, kolaborasi, dan solusi digital dari masa perkuliahan." />
-        <div className="projects-grid">{projects.map((project, index) => <button className="project-card reveal" style={{ '--delay': `${(index % 3) * 75}ms` }} key={project.id} onClick={() => setSelectedProject(project)} aria-label={`Lihat detail ${project.title}`}><span className="project-cover"><img src={project.image} alt={project.title} loading="lazy" /><span className="project-number">0{index + 1}</span><span className="project-open">↗</span></span><span className="project-info"><span className="project-role">{project.role}</span><span className="project-title">{project.title}</span><span className="project-summary">{project.summary}</span><span className="tag-list">{project.tags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}</span></span></button>)}</div>
+        <div className="projects-grid">{projects.map((project, index) => <button className="project-card reveal" style={{ '--delay': `${(index % 3) * 75}ms` }} key={project.id} onClick={() => setSelectedProject(project)} aria-label={`Lihat detail ${project.title}`}><span className="project-cover"><img src={getMediaUrl(project.image)} alt={project.title} loading="lazy" /><span className="project-number">0{index + 1}</span><span className="project-open">↗</span></span><span className="project-info"><span className="project-role">{project.role}</span><span className="project-title">{project.title}</span><span className="project-summary">{project.summary}</span><span className="tag-list">{project.tags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}</span></span></button>)}</div>
       </section>
 
       <section className="section certificates-section" id="certs">
         <SectionHeading label="Sertifikat" title="Belajar tidak berhenti." description="Beberapa sertifikat yang saya peroleh selama masa perkuliahan." />
-        <div className="certificates-grid">{certificates.map(([image, title, issuer], index) => <article className="certificate reveal" style={{ '--delay': `${index * 70}ms` }} key={image}><div className="certificate-image"><img src={image} alt={title} loading="lazy" /><span>0{index + 1}</span></div><div className="certificate-meta"><div><h3>{title}</h3><p>{issuer}</p></div><span>↗</span></div></article>)}</div>
+        <div className="certificates-grid">{certificates.map(([image, title, issuer], index) => <article className="certificate reveal" style={{ '--delay': `${index * 70}ms` }} key={image}><div className="certificate-image"><img src={getMediaUrl(image)} alt={title} loading="lazy" /><span>0{index + 1}</span></div><div className="certificate-meta"><div><h3>{title}</h3><p>{issuer}</p></div><span>↗</span></div></article>)}</div>
       </section>
 
       <section className="contact-section" id="contact"><div className="contact-inner reveal"><span className="eyebrow">Kontak</span><h2>Tertarik untuk Bekerja Sama?<br /><span>Mari kita bicarakan.</span></h2><a className="contact-email" href="mailto:nazwalaila459@gmail.com">nazwalaila459@gmail.com <span>↗</span></a><div className="contact-links"><a href="https://wa.me/6283891502129" target="_blank" rel="noreferrer">WhatsApp <span>↗</span></a><a href="https://linkedin.com/in/nazwa-laila" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a><a href="https://github.com/laila457" target="_blank" rel="noreferrer">GitHub <span>↗</span></a></div></div><span className="contact-decoration">NL</span></section>
